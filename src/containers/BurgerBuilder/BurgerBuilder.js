@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Aux from '../../hoc/Aux'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
+import { addTwoDecimalPlaces } from '../../GenericFunctions'
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -63,7 +64,8 @@ class BurgerBuilder extends Component{
                 <BuildControls 
                   ingredientAdded={this.addIngredienthandler}
                   ingredientRemoved={this.removeIngredientHandler} 
-                  disabled={disableInfo} />
+                  disabled={disableInfo} 
+                  price={addTwoDecimalPlaces(this.state.totalPrice)} />
             </Aux>
         )
     }
